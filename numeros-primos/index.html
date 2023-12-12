@@ -11,6 +11,50 @@
     <button onclick="calcularSumaPrimos()">Calcular Suma de Números Primos</button>
     <div id="resultados"></div>
 
+    <script>
+        //Declaramos la función para calcular el número primo
+        function esPrimo(numero){
+            //Determinamos que el número es primo
+            let primo = true;
+            //Descartamos los números negativos y el uno
+            if(numero<=1){
+                primo=false;
+            }
+            //Descartamos los números que sean divisibles entre otros números aparte de uno y ellos mismos
+            else{
+                for(let i = 2; i < numero; i++){
+                    if(numero % i ===0){
+                        primo=false;
+                        break;
+
+                    }
+                }
+            }
+            //Devolvemos el resultado 
+            return primo;
+        }
+
+        //Creamos la función para calcular la suma de los números primos
+
+        function calcularSumaPrimos(){
+        //Declaramos una variable donde vamos a guardar el resultado de la suma
+        let suma = 0;
+            //Realializamos un bucle para ejecutar los 15 prompt y lo pasamos a número entero
+            for(let i=0;i<15;i++){
+                let num = parseInt(prompt('Introduce un número:','0'));
+                //Si el número es primo se suma
+                if(esPrimo(num)){
+                    suma+=num;
+                }
+                
+            }
+            //Escribimos en el html como pide el enunciado el resultado de la suma de los números que sean primos
+            document.write(`<p>El resultado de la suma de los números primos es ${suma}</p>`)
+        }
+
+
+    </script>
+
   
 </body>
 
